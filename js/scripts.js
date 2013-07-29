@@ -49,7 +49,7 @@ var board = new Kinetic.Rect({
   height: containerHeight
 });
 
-board.on('mouseover mousemove', function (event) {
+board.on('mouseover mousedown', function (event) {
   console.log('x: ' + event.pageX + ' y: ' + event.pageY);
 });
 

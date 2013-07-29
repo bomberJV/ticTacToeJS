@@ -1,0 +1,1 @@
+This is an implementation of Tic-Tac-Toe using Kinetic.js and HTML5

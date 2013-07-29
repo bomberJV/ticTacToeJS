@@ -1,23 +1,66 @@
+ var containerWidth = 500;
+ var containerHeight = 500;
  var stage = new Kinetic.Stage({
         container: 'container',
-        width: window.innerWidth,
-        height: window.innerHeight
+        width: containerWidth,
+        height: containerHeight
       });
 
-      var layer = new Kinetic.Layer();
+var layer = new Kinetic.Layer();
 
-      var circle = new Kinetic.Circle({
-        x: stage.getWidth() / 2,
-        y: stage.getHeight() / 2,
-        radius: 70,
-        fill: 'red',
-        stroke: 'black',
-        strokeWidth: 4,
-        draggable: true
-      });
+var scale = 5.0;
 
-      // add the shape to the layer
-      layer.add(circle);
+var gridLineV1 = new Kinetic.Line({
+  points: [25*scale, 1*scale, 25*scale, 100*scale],
+  stroke: 'white',
+  strokeWidth: 15,
+  lineCap: 'round',
+  lineJoin: 'round'
+});
 
-      // add the layer to the stage
-      stage.add(layer);
+var gridLineV2 = new Kinetic.Line({
+  points: [75*scale, 1*scale, 75*scale, 100*scale],
+  stroke: 'white',
+  strokeWidth: 15,
+  lineCap: 'round',
+  lineJoin: 'round'
+});
+
+var gridLineH1 = new Kinetic.Line({
+  points: [1*scale, 25*scale, 100*scale, 25*scale],
+  stroke: 'white',
+  strokeWidth: 15,
+  lineCap: 'round',
+  lineJoin: 'round'
+});
+
+var gridLineH2 = new Kinetic.Line({
+  points: [1*scale, 75*scale, 100*scale, 75*scale],
+  stroke: 'white',
+  strokeWidth: 15,
+  lineCap: 'round',
+  lineJoin: 'round'
+});
+
+var board = new Kinetic.Rect({
+  x: 0,
+  y: 0,
+  width: containerWidth,
+  height: containerHeight
+});
+
+board.on('mouseover mousemove', function (event) {
+  console.log('x: ' + event.pageX + ' y: ' + event.pageY);
+});
+
+layer.add(board);
+
+// add the shape to the layer
+layer.add(gridLineV1);
+layer.add(gridLineV2);
+// add the shape to the layer
+layer.add(gridLineH1);
+layer.add(gridLineH2);
+
+// add the layer to the stage
+stage.add(layer);

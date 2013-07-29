@@ -7,3 +7,9 @@ h1
 {
 	color: white;
 }
+
+#container
+{
+	padding-left: 5%;
+	padding-top: 5%;
+}
